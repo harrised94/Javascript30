@@ -96,19 +96,53 @@
             }
     });
 
-    const inventorSort = inventors.sort((firstPerson, secondPerson) => firstPerson.year > secondPerson.year ? 1 : -1);
+    const inventorSort = inventors.sort((firstPerson, secondPerson) => firstPerson.passed < secondPerson.passed ? 1 : -1);          // Short hand way of writing it
 
 
     console.table(inventorSort)
 
-    // Array.prototype.reduce()
+    //**********************************************************************************************
 
+    console.log('5------------------ ');
+    // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+
+    const totalYears = inventors.reduce((total, inventor) => {
+        return total + (inventor.passed - inventor.year);
+    }, 0)
+
 
     // 5. Sort the inventors by years lived
 
+    const inventorYearSort = inventors.sort(function(firstPerson, secondPerson) {
+        const age1 = firstPerson.passed - firstPerson.year;
+        const age2 = secondPerson.passed - secondPerson.year;
+        return age1 > age2 ? -1 : 1;
+                                        /* 
+                                        if(age1 > age2) {
+                                            return -1;
+                                        }
+                                        else {
+                                            return 1;
+                                        } */
+    })
+
+    console.table(inventorYearSort)
+
+    //**********************************************************************************************
+
+    console.log('6------------------ ');
+    // How to filter through a list of anything on a web page and only present results that include certain letters
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+    const category = document.querySelector('.mw-category');
+    const links = Array.from(category.querySelectorAll('a'));
+    const de = links
+        .map(link => link.textContent)
+        .filter(streetName => streetName.includes('de'))
+
+    console.log(de);
 
 
     // 7. sort Exercise
