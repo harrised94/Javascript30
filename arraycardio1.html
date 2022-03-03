@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio 💪</title>
+</head>
+<body>
+
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <div id="showData"></div>
+  <script>
+    // Get your shorts on - this is an array workout!
+    // ## Array Cardio Day 1
+
+    // Some data we can work with
+
+
+
+
+    const inventors = [
+      { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+      { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+      { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+      { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+      { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+      { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+      { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+      { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+      { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+      { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+      { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+      { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+    ];
+
+    // EXTRACT VALUE FOR HTML HEADER 
+const header = Object.keys(inventors[0]);  
+
+// CREATE DYNAMIC TABLE.
+const table = document.createElement("table");
+
+// CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+let tr = table.insertRow(-1);                   // TABLE ROW.
+for (let i = 0; i < header.length; i++) {
+    const th = document.createElement("th");      // TABLE HEADER.
+    th.innerHTML = header[i];
+    tr.appendChild(th);
+}
+
+// ADD JSON DATA TO THE TABLE AS ROWS.
+for (let i = 0; i < inventors.length; i++) {
+
+    tr = table.insertRow(-1);
+
+    for (let j = 0; j < header.length; j++) {
+        let tabCell = tr.insertCell(-1);
+        tabCell.innerHTML = inventors[i][header[j]];
+    }
+}
+
+// FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+const divContainer = document.getElementById("showData");
+divContainer.innerHTML = "";
+divContainer.appendChild(table);
+
+    
+
+    const people = [
+      'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
+      'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
+      'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
+      'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
+      'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
+    ];
+    
+    //*********************************************************************************************
+
+    // Array.prototype.filter()
+    // 1. Filter the list of inventors for those who were born in the 1500's
+    console.log('1- Eds Attempt----------------- ');
+    //Ed's Attempt**
+        inventors.filter(obj => {                       // Explanation: TheArrayName.filter(GiveObjectName => {function stuff here}) 
+            if (obj.year >= 1500 && obj.year <= 1600) {
+                console.log(obj.first + " " + obj.last);        // Success! 
+            }
+        });
+
+    console.log('1 Tutorial solution');
+
+    // Tutorial solution
+        const results = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+        console.table(results);
+        
+    console.log('2 -------------------------- ');
+
+    
+    // Array.prototype.map()
+    // 2. Give us an array of the inventors first and last names
+    
+    //Ed's Attempt**
+
+        const inventorFullNames = inventors.map(obj => {
+            console.log(obj.first + " " + obj.last)
+        })
+
+        console.table(inventorFullNames); // Gets the number of items but Outputs undefined
+
+    console.log('3------------------ ');
+
+    // Tutorial Solution 
+
+        const fullNames = inventors.map(obj => obj.first + " " + obj.last);
+        console.log(fullNames);
+
+
+    //**********************************************************************************************
+
+    console.log('4------------------ ');
+
+    // Array.prototype.sort()
+    // 3. Sort the inventors by birthdate, oldest to youngest
+
+    const inventorSort = inventors.sort(function(firstPerson, secondPerson) {
+        if(firstPerson.year < secondPerson.year) {
+            return 1;
+        }
+            else {
+                return -1;
+            }
+    });
+
+    console.table(inventorSort)
+
+    // Array.prototype.reduce()
+
+    // 4. How many years did all the inventors live all together?
+
+    // 5. Sort the inventors by years lived
+
+    // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+
+    // 7. sort Exercise
+    // Sort the people alphabetically by last name
+
+    // 8. Reduce Exercise
+    // Sum up the instances of each of these
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+  </script>
+</body>
+</html>
