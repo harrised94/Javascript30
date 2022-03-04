@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JS Drum Kit</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 
@@ -150,14 +150,14 @@ function removeTransition(e) {
     if (!audio) return;
 
     key.classList.add('active');
-    audio.currentTime = 0;
+   audio.currentTime = 0;
     audio.play();
   }
 
   const keys = document.querySelectorAll('.key');
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // Listen for keydown on the keycode 
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); 
 
-  window.addEventListener('keydown', playSound);
+  window.addEventListener('keydown', playSound); // Listen for keydown and trigger playsound function
     window.addEventListener('click', playSound);
 
  
