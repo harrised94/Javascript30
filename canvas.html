@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+  <style>
+    html, body {
+      margin: 0;
+    }
+    canvas {
+        border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+    <button onclick="clearCanvas()" style="position: fixed; bottom: 0; left: 0">Clear</button>
+<canvas id="draw" width="800" height="800"></canvas>
+
+
+<script>
+
+const canvas = document.getElementById('draw');         // Get the canvas element
+const ctx = canvas.getContext('2d');                    // Set the context as 2d
+
+canvas.width = window.innerWidth;                       // Set the inner width and height to match the view port
+canvas.height = window.innerHeight;
+
+
+ // Base settings for our lines - these are inbuilt canvas properties that you can set
+ctx.strokeStyle = '#BADA55';   
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
+ctx.lineWidth = 100;
+ctx.globalCompositeOperation = 'difference'       // These are the same as photoshop blend modes!! So cool.
+
+let isDrawing = false;      // Setting this so drawing is false and will change to true on mouse click
+let lastX = 0;              // Initialises the ending points for the current brush stroke
+let lastY = 0;
+let hue = 0;            // Initialising the hue to set the color
+let direction = true;
+
+
+function draw(e) {      //Handles the actual drawing
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;         // Set the strokeStyle (color) to be our hue variable
+
+    if(!isDrawing) return; // stop the function from running when they are not moused down
+    console.log(e);
+
+    ctx.beginPath();    
+         
+    ctx.moveTo(lastX, lastY);   // Start From here
+    ctx.lineTo(e.offsetX, e.offsetY); // Go to here  // These are the X and Y values in our event
+    ctx.stroke();
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+
+    hue++;          // Add to the hue variable for each event (in this case mousemove) - makes rainbow color
+    if (hue >= 360) {
+        hue = 0;
+    }
+    if (ctx.lineWidth >=100 || ctx.lineWidth <= 1) {
+        direction = !direction;
+    }
+    if (direction) {
+        ctx.lineWidth++;
+    }   else {
+        ctx.lineWidth--;
+    }
+
+}
+
+
+// Event listeners 
+canvas.addEventListener('mousedown', (e) => {       // When clicked start drawing
+    isDrawing = true;           
+    [lastX, lastY] = [e.offsetX, e.offsetY];        // Update the last X and Y - this ensures that when mouse is clicked, it has got the current mouse location and not just the most recent from prev event
+});      
+canvas.addEventListener('mousemove', draw);     // Adds the event listener for when you move mouse. In this event, there is x and y positioning!
+canvas.addEventListener('mouseup', () => isDrawing = false);        // when unclicked it is not drawing
+canvas.addEventListener('mouseout', () => isDrawing = false);        // if you leave the viewport while clicked down, it sets is drawing to false
+
+
+
+function clearCanvas()
+{
+    var canvas = document.getElementById('draw'),
+        ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+</script>
+</body>
+</html>

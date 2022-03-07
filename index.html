@@ -72,7 +72,7 @@
         <tr>
             <td><li><a href="./arraycardio1.html"> Array Cardio day 1 </a></li></td>
             <td><ul>
-                <li>Loads of array methods used for perusing and manipulating data</li>
+                <li><strong>Loads of array methods used for perusing and manipulating data</strong></li>
                 <li>Array.Filter() - Filters the objects and finds when the result meets a specified parameter. I.e if (object.age >= 10) then show me those objects</li>
                 <li>Array.Map() - Maps through the list and outputs only the values that you're interested in seeing. Can use this to join different values, like first name and last name to make full name </li>
                 <li>Array.sort() - sorts the objects into an order using (a, b) - for example if (a.year is less than b.year) then return -1 else return 1. The numbers are assigned to a, b and this sorts the list. </li>
@@ -83,9 +83,44 @@
         <tr>
             <td><li><a href="./FlexGallery.html"> Flex Gallery </a></li></td>
             <td><ul>
+                <li><strong>A gallery style page with moving parts</strong></li>
                 <li>Used forEach loop on list of 'panel' elements and added a click event listener to them, which runs a function to add/remove a class!  </li>
                 <li>The class toggle basically changes the width of the panel and moves some text in/out for each click! Toggles the class with y: -50px for example! </li>
                 <li>forEach seems to be the easiest way to do this, instead of using arguments (x) in the function call and onclick in the html like before</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td><li><a href="./ajaxtypeahead.html"> AJAX Type Ahead </a></li></td>
+            <td><ul>
+                <li><strong>Gets data, allows user to search the data on an input field and then outputs the matching results!</strong></li>
+                <li>Fetch API and uses a spreader ... on .then(data to 'push' the data into our array  </li>
+                <li>Use array.filter(x => ) and then a RegExp to 'return' if the user input text matches - uses .match() to test this! </li>
+                <li>Uses RegExp to .match() and .replace() things </li>
+                <li>Add a 'change' event listener to a html input and run a function that console logs or outputs to html 'this.value',<strong>will give you whatever value is typed inside the input box</strong></li>
+                <li></li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td><li><a href="./arraycardio2.html"> Array Cardio 2 </a></li></td>
+            <td><ul>
+                <li><strong>Using more array methods to check if array items/objects meet a criteria</strong></li>
+                <li> .some() to check if at least one of the array items meets criteria </li>
+                <li> .every() to check if all of the items meet the criteria </li>
+                <li> .find() to find an array item if it meets <em>exact</em> search criteria I.e: if(item.id === 1) then take action </li>
+                <li> <strong>Deleting an array item from an array!</strong>.findIndex() finds the index of an array item that matches search criteria - this then alllows you to take action like deleting the item from the array using .splice()</li>
+                <li></li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td><li><a href="./canvas.html"> HTML Canvas Paint! </a></li></td>
+            <td><ul>
+                <li><strong>Learning the basics of canvas!</strong></li>
+                <li> Create a canvas that is the width/height of the viewport </li>
+                <li> Set the in built canvas properties to set the style of your stroke </li>
+                <li> Use event listeners to start and stop the drawing/stroking on the different events </li>
+                <li> Use an if else to decide whether to make the stroke wider or thinner </li>
+                <li> Use the <em>really cool</em> globalCompositeOperation properties to do blend modes (like photoshop) with your stroke! </li>
+                <li></li>
             </ul></td>
         </tr>
     </table>
