@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  1) Find where the JS that changes an element is. Inspect element and right click on the html tag, select break on attribute modification and when the element event runs it will break and take you to the JS function
+  2) Interpolated strings - <strong>console.log('hello I am a %s string!', 'rubbish')</strong> will output 'Hello I am a rubbish string'
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+
+    // Regular
+
+    // Interpolated     - A shit version of template literal string
+    console.log('hello I am a %s string!', 'rubbish') 
+
+    // Styled console log! Using %c lol 
+    console.log('%c I am some great text', 'font-size: 50px; background: red;')
+
+    // warning!
+    console.warn('oh nooo')
+
+    // Error :|
+    console.error('Shit!')
+
+    // Info
+    console.info('Crocodiles eat 3-4 people per year')
+
+    // Testing - Add test, it will only assert/write to console if it is false!
+    console.assert(1 === 1, 'That is wrong!')
+
+    // clearing - Clears the console.
+    console.clear(); 
+
+    // Viewing DOM Elements 
+    const p = document.querySelector('p')
+    console.log(p);         // - will log the actual html element 
+    console.dir(p)      // Will give you all properties and methods of that element
+
+    // Grouping together
+    dogs.forEach(dog => {
+        console.group(`${dog.name}`)    // starts the group
+        console.log(dog.name);
+        console.log(`${dog.name} is ${dog.age} years old`)
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`)
+        console.groupEnd(`${dog.name}`) // ends the group
+    })
+
+    // counting - counts how many times this has been logged
+    console.count('Hugo')
+    console.count('Hugo')
+    console.count('Hugo')
+    console.count('Hugo')
+
+    // timing - see how long something takes by starting a timer at one point and ending it after whatever you're measuring!
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+    .then(res => res.json())
+    .then(data => {
+        console.timeEnd('fetching data')
+    })
+
+
+
+  </script>
+</body>
+</html>

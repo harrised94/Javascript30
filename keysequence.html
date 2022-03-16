@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+    <div id="text">
+
+    </div>
+
+<script>
+    const pressed = [];  // create empty array for our key presses to go into
+const secretCode = 'wesbos'; // Set the secret code
+
+window.addEventListener('keyup', (e) => {   // listen for the key press and create a function with the event 
+  console.log(e.key);
+  pressed.push(e.key);
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);   // Drop the last letter if the array reaches the secret code's length to prevent endless array
+  if (pressed.join('').includes(secretCode)) {      // join the array items to make a string and if it includes the secret code, execute 
+    console.log('DING DING!');
+    cornify_add();
+  }
+  console.log(pressed);
+});
+
+</script>
+
+</body>
+</html>
