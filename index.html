@@ -5,210 +5,312 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <style>
-        td, table{
-            border: 1px solid black;
-        }
-        table {
-            width: 90vw;
-            border: 6px solid rgb(0, 174, 255);
-        }
-        tr:nth-child(odd) {
-            background: whitesmoke;
-        }
 
-        a {
-            color: black;
-        }
+        /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
 
-        a:hover {
-            text-decoration: none;
-        }
-        
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
     </style>
 </head>
 <body>
     <h1>JAVASCRIPT 30 CHALLENGES</h1>
 
+<div class="container">
+    <div class="row">
+            <div class="card col-sm-12 col-lg-2">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h3><a href="./jsdrumkit.html">JS DRUMKIT</a></h3>
+                          <img src="/images/jsdrumkit.jpg" alt="">
+                        </div>
+                        <div class="flip-card-back">
+                          <ul>
+                            <li>Triggering Event on key press</li>
+                            <li>Key codes</li>
+                            <li>Playing audio files</li>
+                            <li>Using html data attributes</li>
+                            <button><a href="./jsdrumkit.html">Take me there!</a></button>
+                          </ul>
+                        </div>
+                    </div>
+            </div>
 
-    <table>
-        <tr>
-            <th>Project Name</th>
-            <th>Useful parts</th>
-        </tr>
-        
-        <tr>
-            <td><li><a href="./jsdrumkit.html">JS DRUMKIT</a></li></td>
-            <td><ul>
-                <li>Triggering Event on key press</li>
-                <li>Key codes</li>
-                <li>Playing audio files</li>
-                <li>Using html data attributes</li>
-            </ul></td>
-        </tr>
+
+            <div class="card col-sm-12 col-lg-3">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <h3><a href="./clock.html"> CSS + JS Clock </a></h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <ul>
+                                <li>Set interval - making something run at time intervals</li>
+                                <li>Built in new Date()</li>
+                                <li>Calculating degrees of rotation</li>
+                                <li>Style.transform using template literal variable</li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./cssvariables"> Playing with CSS Variables and JS </a></h3>
+                <p>></p>
+                <ul>
+                    <li>Using CSS Variables --var, similar to sass  </li>
+                    <li>Using forEach to add event listener to each individual input and running function on each event</li>
+                    <li>Changing the CSS variable values on the event. Range slider changes css values</li>
+                    <li>Using dataset to get object full of the data attributes for that html element. </li>
+                    <li>Using 'this.' to target whatever the forEach loop has iterated over and brought back</li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./arraycardio1.html"> Array Cardio day 1 </a></h3>
+                <p>></p>
+                <ul>
+                    <li><strong>Loads of array methods used for perusing and manipulating data</strong></li>
+                    <li>Array.Filter() - Filters the objects and finds when the result meets a specified parameter. I.e if (object.age >= 10) then show me those objects</li>
+                    <li>Array.Map() - Maps through the list and outputs only the values that you're interested in seeing. Can use this to join different values, like first name and last name to make full name </li>
+                    <li>Array.sort() - sorts the objects into an order using (a, b) - for example if (a.year is less than b.year) then return -1 else return 1. The numbers are assigned to a, b and this sorts the list. </li>
+                    <li>Array.reduce() - The reducer walks through the array element-by-element, at each step adding the requested value to the result from the previous step — until there are no more elements to add. </li>
+                    <li>Filtered through a list of elements (can choose any number of elements) in the dom and used filter and map to find those containing 'de' or whatever string you want!  </li>
+                </ul>
+            </div>
+    </div>
+    <div class="row">
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./FlexGallery.html"> Flex Gallery </a></h3>
+                <p>></p>
+                <ul>
+                    <li><strong>A gallery style page with moving parts</strong></li>
+                    <li>Used forEach loop on list of 'panel' elements and added a click event listener to them, which runs a function to add/remove a class!  </li>
+                    <li>The class toggle basically changes the width of the panel and moves some text in/out for each click! Toggles the class with y: -50px for example! </li>
+                    <li>forEach seems to be the easiest way to do this, instead of using arguments (x) in the function call and onclick in the html like before</li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./ajaxtypeahead.html"> AJAX Type Ahead </a></h3>
+                <p>></p>
+                <ul>
+                    <li><strong>Gets data, allows user to search the data on an input field and then outputs the matching results!</strong></li>
+                    <li>Fetch API and uses a spreader ... on .then(data to 'push' the data into our array  </li>
+                    <li>Use array.filter(x => ) and then a RegExp to 'return' if the user input text matches - uses .match() to test this! </li>
+                    <li>Uses RegExp to .match() and .replace() things </li>
+                    <li>Add a 'change' event listener to a html input and run a function that console logs or outputs to html 'this.value',<strong>will give you whatever value is typed inside the input box</strong></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./arraycardio2.html"> Array Cardio 2 </a></h3>
+                <p>></p>
+                <ul>
+                    <li><strong>Using more array methods to check if array items/objects meet a criteria</strong></li>
+                    <li> .some() to check if at least one of the array items meets criteria </li>
+                    <li> .every() to check if all of the items meet the criteria </li>
+                    <li> .find() to find an array item if it meets <em>exact</em> search criteria I.e: if(item.id === 1) then take action </li>
+                    <li> <strong>Deleting an array item from an array!</strong>.findIndex() finds the index of an array item that matches search criteria - this then alllows you to take action like deleting the item from the array using .splice()</li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./canvas.html"> HTML Canvas Paint! </a></h3>
+                <p>></p>
+                <ul>
+                    <li><strong>Learning the basics of canvas!</strong></li>
+                    <li> Create a canvas that is the width/height of the viewport </li>
+                    <li> Set the in built canvas properties to set the style of your stroke </li>
+                    <li> Use event listeners to start and stop the drawing/stroking on the different events </li>
+                    <li> Use an if else to decide whether to make the stroke wider or thinner </li>
+                    <li> Use the <em>really cool</em> globalCompositeOperation properties to do blend modes (like photoshop) with your stroke! </li>
+                </ul>
+            </div>
+    </div>
+    <div class="row">
+
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./devtooltricks.html"> 14 Must Know Dev Tools Tricks </a></h3>
+                <p>></p>
+                <ul>
+                    <li> Styled console log! Using %c lol</li>
+                    <li> Add a timer to calculate how long something takes! </li>
+                    <li> console log an html element and console.dir() the element to get it's properties and methods</li>
+                    <li> Group console logs together which allows you to open them and close them!</li>
+                    <li> Add a counter to count how many times something has been logged</li>
+                    <li> Setting yourself a warning and error message manually </li>
+                    <li> console.info('') to write yourself a message </li>
+                    <li> console.assert('') to test and respond if test if false </li>
+                    <li> console.clear() to clear console! </li>
+                    <li> console.table() takes an array and displays them in nice table. </li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./holdshift.html"> Hold Shift to select multiple options </a></h3>
+                <p>></p>
+                <ul>
+                    <li> Listen for click events to run function </li>
+                    <li> Loop over all the items and if the items are between the most recent previously checked and the current checked, then check all of them </li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./videoplayer.html"> Build an HTML video player! </a></h3>
+                <p>></p>
+                <ul>
+                    <li>Fully functioning video player with full screen capability</li>
+                    <li>Creating a flag variable to only run function when mouse is down (clicked)</li>
+                    <li>Parse float to convert string into true number</li>
+                    <li>For each loop to add event handler to each targeted element</li>
+                    <li> Add event listener on a range slider to get the value of the range slider when changed </li>
+                    <li>Getting the value of a range slider and setting the inbuilt video.volume property based on the number</li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./keysequence.html"> Key Sequence detection (KONAMI) </a></h3>
+                <p>></p>
+                <ul>
+                    <li>Event listener that listens for key press and runs function (can log which key is pressed) </li>
+                    <li>cornify_add() to test if something is successful in an appealing way! </li>
+                    <li>Join array items and make them into a string, then see if that string includes our secret code and execute a function if it does!</li>
+                </ul>
+            </div>
+    </div>
+    <div class="row">
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./slideonscroll.html"> Slide in on scroll </a></h3>
+                <p>></p>
+                <ul>
+                    <li>Adding event listener to the scroll, using a <strong>debounce function</strong> to ensure the event isn't logged constantly </li>
+                    <li>running the debounce function on scroll with our function passed into it as an argument </li>
+                    <li>Use window.scrollY() to identify where in the window the scroll is </li>
+                    <li>Join array items and make them into a string, then see if that string includes our secret code and execute a function if it does!</li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./refvscopy.html"> Javascript reference vs copy </a></h3>
+                <p>></p>
+                <ul>
+                    <li> If you take an array, create a var referencing that array and then update the var (i.e. var[1] = "hello") that will actually update the main array too! </li>
+                    <li> If you make a copy of that array using spread (const newArray = [...oldArray]) you can edit the new array but retain original</li>
+                    <li> Same as above applies to objects. You can use Object.assign({}, objectName, { newKey = value } - this creates new empty object, then takes name of old object and fills new object with those key/values and then allows you to pass in new key/values. This will preserve original object </li>
+                    <li>Use JSON.parse(JSON.stringify(yourObjectVar)); to turn an object into a string and back into an object, thus removing any mapping and making a clean copy.</li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./refvscopy.html"> Local storage and event delegation </a></h3>
+                <p>></p>
+                <ul>
+                    <li> If you take an array, create a var referencing that array and then update the var (i.e. var[1] = "hello") that will actually update the main array too! </li>
+                    <li> If you make a copy of that array using spread (const newArray = [...oldArray]) you can edit the new array but retain original</li>
+                    <li> Same as above applies to objects. You can use Object.assign({}, objectName, { newKey = value } - this creates new empty object, then takes name of old object and fills new object with those key/values and then allows you to pass in new key/values. This will preserve original object </li>
+                    <li>Use JSON.parse(JSON.stringify(yourObjectVar)); to turn an object into a string and back into an object, thus removing any mapping and making a clean copy.</li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./cssshadow.html">CSS Text Shadow Mouse Move Effect </a></h3>
+                <p>></p>
+                <ul>
+                    <li> Dynamically update the style of the html element (in this case the text shadow) depending on where the mouse is. Also do the same for mobile using accelerometer </li>
+                    <li> Use a 'walk' distance and some math to define the convert x/y mouse position to a scale, (i.e. making the top left cursor position 50 and bottom right -50), this then allows you to manipulate style values using template literal </li>
+                    <li> Cool text shadow effect that moves on mouse move </li>
+                </ul>
+            </div>
+    </div>
+    <div class="row">
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./sortingbands.html">Sorting objects alphabetically, ignoring 'the' and 'a' </a></h3>
+                <p>></p>
+                <ul>
+                    <li> Use array.sort() to sort band names but remove words 'the' and 'a'</li>
+                    <li> Use a 'walk' distance and some math to define the convert x/y mouse position to a scale, (i.e. making the top left cursor position 50 and bottom right -50), this then allows you to manipulate style values using template literal </li>
+                    <li> Cool text shadow effect that moves on mouse move </li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./stickynav.html">Sticky Nav</a></h3>
+                <p>></p>
+                <ul>
+                    <li> Get the vertical (Y) position of an element using offsetTop (how far from the top it is) </li>
+                    <li> Get the height of an element using offset height </li>
+                    <li> Get the scroll position. Put that inside the function that triggers on event listener being triggered and it will constantly update the scroll position with each scroll! </li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./followalonglinks.html">Follow along nav links! Highlight span that follows the hovered link </a></h3>
+                <p>></p>
+                <ul>
+                    <li> Uses forEach to loop through all of the elements and add an event listener to each one! </li>
+                    <li> Uses getBoundingClientRect which gets the width, height, coordinates of the targetted element!! </li>
+                    <li> Sets the height, width and coordinates of our element to the properties that getBoundingClientRect retrieves! </li>
+                    <li> Does calculation using the scroll position and adding that to the coordinates to ensure our highlight always goes to the right place </li>
+                </ul>
+            </div>
+            <div class="card col-sm-12 col-lg-3">
+                <h3><a href="./stripedropdown.html">Stripe Follow along nav dropdown!</a></h3>
+                <p>></p>
+                <ul>
+                    <li> There is a div that acts as background for the sub menus. It starts off hidden (opacity 0 and display none) - then on mouse enter, it uses getBoundingClientRect to get properties of what the mouse entered, changes our div to display block and sets it's position, width and height using getBoundingClientRect</li>
+                    <li> Uses getBoundingClientRect which gets the width, height, coordinates of the targetted element!! </li>
+                    <li> Sets the height, width and coordinates of our element to the properties that getBoundingClientRect retrieves! </li>
+                    <li> Does calculation using the scroll position and adding that to the coordinates to ensure our highlight always goes to the right place </li>
+                </ul>
+            </div>
+    </div>
+</div>
     
-        <tr>
-            <td><li><a href="./clock.html"> CSS + JS Clock </a></li></td>
-            <td><ul>
-                <li>Set interval - making something run at time intervals</li>
-                <li>Built in new Date()</li>
-                <li>Calculating degrees of rotation</li>
-                <li>Style.transform using template literal variable</li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./cssvariables"> Playing with CSS Variables and JS </a></li></td>
-            <td><ul>
-                <li>Using CSS Variables --var, similar to sass  </li>
-                <li>Using forEach to add event listener to each individual input and running function on each event</li>
-                <li>Changing the CSS variable values on the event. Range slider changes css values</li>
-                <li>Using dataset to get object full of the data attributes for that html element. </li>
-                <li>Using 'this.' to target whatever the forEach loop has iterated over and brought back</li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./arraycardio1.html"> Array Cardio day 1 </a></li></td>
-            <td><ul>
-                <li><strong>Loads of array methods used for perusing and manipulating data</strong></li>
-                <li>Array.Filter() - Filters the objects and finds when the result meets a specified parameter. I.e if (object.age >= 10) then show me those objects</li>
-                <li>Array.Map() - Maps through the list and outputs only the values that you're interested in seeing. Can use this to join different values, like first name and last name to make full name </li>
-                <li>Array.sort() - sorts the objects into an order using (a, b) - for example if (a.year is less than b.year) then return -1 else return 1. The numbers are assigned to a, b and this sorts the list. </li>
-                <li>Array.reduce() - The reducer walks through the array element-by-element, at each step adding the requested value to the result from the previous step — until there are no more elements to add. </li>
-                <li>Filtered through a list of elements (can choose any number of elements) in the dom and used filter and map to find those containing 'de' or whatever string you want!  </li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./FlexGallery.html"> Flex Gallery </a></li></td>
-            <td><ul>
-                <li><strong>A gallery style page with moving parts</strong></li>
-                <li>Used forEach loop on list of 'panel' elements and added a click event listener to them, which runs a function to add/remove a class!  </li>
-                <li>The class toggle basically changes the width of the panel and moves some text in/out for each click! Toggles the class with y: -50px for example! </li>
-                <li>forEach seems to be the easiest way to do this, instead of using arguments (x) in the function call and onclick in the html like before</li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./ajaxtypeahead.html"> AJAX Type Ahead </a></li></td>
-            <td><ul>
-                <li><strong>Gets data, allows user to search the data on an input field and then outputs the matching results!</strong></li>
-                <li>Fetch API and uses a spreader ... on .then(data to 'push' the data into our array  </li>
-                <li>Use array.filter(x => ) and then a RegExp to 'return' if the user input text matches - uses .match() to test this! </li>
-                <li>Uses RegExp to .match() and .replace() things </li>
-                <li>Add a 'change' event listener to a html input and run a function that console logs or outputs to html 'this.value',<strong>will give you whatever value is typed inside the input box</strong></li>
-                <li></li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./arraycardio2.html"> Array Cardio 2 </a></li></td>
-            <td><ul>
-                <li><strong>Using more array methods to check if array items/objects meet a criteria</strong></li>
-                <li> .some() to check if at least one of the array items meets criteria </li>
-                <li> .every() to check if all of the items meet the criteria </li>
-                <li> .find() to find an array item if it meets <em>exact</em> search criteria I.e: if(item.id === 1) then take action </li>
-                <li> <strong>Deleting an array item from an array!</strong>.findIndex() finds the index of an array item that matches search criteria - this then alllows you to take action like deleting the item from the array using .splice()</li>
-                <li></li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./canvas.html"> HTML Canvas Paint! </a></li></td>
-            <td><ul>
-                <li><strong>Learning the basics of canvas!</strong></li>
-                <li> Create a canvas that is the width/height of the viewport </li>
-                <li> Set the in built canvas properties to set the style of your stroke </li>
-                <li> Use event listeners to start and stop the drawing/stroking on the different events </li>
-                <li> Use an if else to decide whether to make the stroke wider or thinner </li>
-                <li> Use the <em>really cool</em> globalCompositeOperation properties to do blend modes (like photoshop) with your stroke! </li>
-                <li></li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./devtooltricks.html"> 14 Must Know Dev Tools Tricks </a></li></td>
-            <td><ul>
-                <li> Styled console log! Using %c lol</li>
-                <li> Add a timer to calculate how long something takes! </li>
-                <li> console log an html element and console.dir() the element to get it's properties and methods</li>
-                <li> Group console logs together which allows you to open them and close them!</li>
-                <li> Add a counter to count how many times something has been logged</li>
-                <li> Setting yourself a warning and error message manually </li>
-                <li> console.info('') to write yourself a message </li>
-                <li> console.assert('') to test and respond if test if false </li>
-                <li> console.clear() to clear console! </li>
-                <li> console.table() takes an array and displays them in nice table. </li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./holdshift.html"> Hold Shift to select multiple options </a></li></td>
-            <td><ul>
-                <li> Listen for click events to run function </li>
-                <li> Loop over all the items and if the items are between the most recent previously checked and the current checked, then check all of them </li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./videoplayer.html"> Build an HTML video player! </a></li></td>
-            <td><ul>
-                <li>Fully functioning video player with full screen capability</li>
-                <li>Creating a flag variable to only run function when mouse is down (clicked)</li>
-                <li>Parse float to convert string into true number</li>
-                <li>For each loop to add event handler to each targeted element</li>
-                <li> Add event listener on a range slider to get the value of the range slider when changed </li>
-                <li>Getting the value of a range slider and setting the inbuilt video.volume property based on the number</li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./keysequence.html"> Key Sequence detection (KONAMI) </a></li></td>
-            <td><ul>
-                <li>Event listener that listens for key press and runs function (can log which key is pressed) </li>
-                <li>cornify_add() to test if something is successful in an appealing way! </li>
-                <li>Join array items and make them into a string, then see if that string includes our secret code and execute a function if it does!</li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./slideonscroll.html"> Slide in on scroll </a></li></td>
-            <td><ul>
-                <li>Adding event listener to the scroll, using a <strong>debounce function</strong> to ensure the event isn't logged constantly </li>
-                <li>running the debounce function on scroll with our function passed into it as an argument </li>
-                <li>Use window.scrollY() to identify where in the window the scroll is </li>
-                <li>Join array items and make them into a string, then see if that string includes our secret code and execute a function if it does!</li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./refvscopy.html"> Javascript reference vs copy </a></li></td>
-            <td><ul>
-                <li> If you take an array, create a var referencing that array and then update the var (i.e. var[1] = "hello") that will actually update the main array too! </li>
-                <li> If you make a copy of that array using spread (const newArray = [...oldArray]) you can edit the new array but retain original</li>
-                <li> Same as above applies to objects. You can use Object.assign({}, objectName, { newKey = value } - this creates new empty object, then takes name of old object and fills new object with those key/values and then allows you to pass in new key/values. This will preserve original object </li>
-                <li>Use JSON.parse(JSON.stringify(yourObjectVar)); to turn an object into a string and back into an object, thus removing any mapping and making a clean copy.</li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./refvscopy.html"> Local storage and event delegation </a></li></td>
-            <td><ul>
-                <li> If you take an array, create a var referencing that array and then update the var (i.e. var[1] = "hello") that will actually update the main array too! </li>
-                <li> If you make a copy of that array using spread (const newArray = [...oldArray]) you can edit the new array but retain original</li>
-                <li> Same as above applies to objects. You can use Object.assign({}, objectName, { newKey = value } - this creates new empty object, then takes name of old object and fills new object with those key/values and then allows you to pass in new key/values. This will preserve original object </li>
-                <li>Use JSON.parse(JSON.stringify(yourObjectVar)); to turn an object into a string and back into an object, thus removing any mapping and making a clean copy.</li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./cssshadow.html">CSS Text Shadow Mouse Move Effect </a></li></td>
-            <td><ul>
-                <li> Dynamically update the style of the html element (in this case the text shadow) depending on where the mouse is. Also do the same for mobile using accelerometer </li>
-                <li> Use a 'walk' distance and some math to define the convert x/y mouse position to a scale, (i.e. making the top left cursor position 50 and bottom right -50), this then allows you to manipulate style values using template literal </li>
-                <li> Cool text shadow effect that moves on mouse move </li>
-            </ul></td>
-        </tr>
-        <tr>
-            <td><li><a href="./sortingbands.html">Sorting objects alphabetically, ignoring 'the' and 'a' </a></li></td>
-            <td><ul>
-                <li> Use array.sort() to sort band names but remove words 'the' and 'a'</li>
-                <li> Use a 'walk' distance and some math to define the convert x/y mouse position to a scale, (i.e. making the top left cursor position 50 and bottom right -50), this then allows you to manipulate style values using template literal </li>
-                <li> Cool text shadow effect that moves on mouse move </li>
-            </ul></td>
-        </tr>
-    </table>
-    
-    
+    <!-- <script>
+        const triggers = document.querySelectorAll('p');
+        const cardDetails = document.querySelectorAll('ul');
+
+        function showInfo() {
+            
+            if(this.classList.contains('rotated')) {
+                this.classList.remove('rotated');
+                $('ul').slideUp();
+            } else {
+                this.classList.add('rotated');
+                $('ul').slideDown();
+            }  
+        }
+
+        triggers.forEach(trigger => trigger.addEventListener('click', showInfo)); 
+    </script> -->
 </body>
 </html>
